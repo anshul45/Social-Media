@@ -9,7 +9,7 @@ import {
   FormControl,
   useTheme,
   useMediaQuery,
-} from "@mui/system";
+} from "@mui/material";
 
 import {
   Search,
@@ -56,7 +56,9 @@ const Navbar = () => {
               cursor: "pointer",
             },
           }}
-        ></Typography>
+        >
+          Social_Media
+        </Typography>
         {isNonMobileScreens && (
           <FlexBetween
             background={neutralLight}
