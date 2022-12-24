@@ -16,7 +16,6 @@ import { useDispatch } from "react-redux";
 import { setLogin } from "state";
 import Dropzone from "react-dropzone";
 import FlexBetween from "components/FlexBetween";
-import { FactCheck } from "@mui/icons-material";
 
 const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
@@ -122,7 +121,7 @@ const Form = () => {
           <Box
             display="grid"
             gap="30px"
-            gripTemplateColumns="repeat(4,minmax(0,1fr))"
+            griptemplatecolumns="repeat(4,minmax(0,1fr))"
             sx={{
               "&>div": { gridColumn: isNonMobile ? undefined : "span 4" },
             }}
