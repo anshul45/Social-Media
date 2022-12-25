@@ -7,7 +7,6 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { Formik } from "formik";
 import * as yup from "yup";
@@ -37,6 +36,7 @@ const initialValuesRegister = {
   lastName: "",
   email: "",
   password: "",
+  location: "",
   occupation: "",
   picture: "",
 };
@@ -56,7 +56,7 @@ const Form = () => {
   const isRegister = pageType === "register";
 
   const register = async (values, onSubmitProps) => {
-    //this allows us to send form info with image
+    // this allows us to send form info with image
     const formData = new FormData();
     for (let value in values) {
       formData.append(value, values[value]);
@@ -72,6 +72,7 @@ const Form = () => {
     );
     const savedUser = await savedUserResponse.json();
     onSubmitProps.resetForm();
+
     if (savedUser) {
       setPageType("login");
     }
@@ -96,7 +97,7 @@ const Form = () => {
     }
   };
 
-  const handleFormSubmit = async (values, onsubmitProps) => {
+  const handleFormSubmit = async (values, onSubmitProps) => {
     if (isLogin) await login(values, onSubmitProps);
     if (isRegister) await register(values, onSubmitProps);
   };
@@ -121,9 +122,9 @@ const Form = () => {
           <Box
             display="grid"
             gap="30px"
-            griptemplatecolumns="repeat(4,minmax(0,1fr))"
+            gridTemplateColumns="repeat(4, minmax(0, 1fr))"
             sx={{
-              "&>div": { gridColumn: isNonMobile ? undefined : "span 4" },
+              "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
             }}
           >
             {isRegister && (
@@ -181,9 +182,9 @@ const Form = () => {
                   <Dropzone
                     acceptedFiles=".jpg,.jpeg,.png"
                     multiple={false}
-                    onDrop={(acceptedFiles) => {
-                      setFieldValue("picture", acceptedFiles[0]);
-                    }}
+                    onDrop={(acceptedFiles) =>
+                      setFieldValue("picture", acceptedFiles[0])
+                    }
                   >
                     {({ getRootProps, getInputProps }) => (
                       <Box
@@ -230,7 +231,8 @@ const Form = () => {
               sx={{ gridColumn: "span 4" }}
             />
           </Box>
-          {/* BUTTONS*/}
+
+          {/* BUTTONS */}
           <Box>
             <Button
               fullWidth
@@ -243,7 +245,7 @@ const Form = () => {
                 "&:hover": { color: palette.primary.main },
               }}
             >
-              {isLogin ? "Login" : "Register"}
+              {isLogin ? "LOGIN" : "REGISTER"}
             </Button>
             <Typography
               onClick={() => {
@@ -255,13 +257,13 @@ const Form = () => {
                 color: palette.primary.main,
                 "&:hover": {
                   cursor: "pointer",
-                  color: palette.primary.main,
+                  color: palette.primary.light,
                 },
               }}
             >
               {isLogin
-                ? "Don't have a account? Sign Up here"
-                : "Already have an account? Login here,"}
+                ? "Don't have an account? Sign Up here."
+                : "Already have an account? Login here."}
             </Typography>
           </Box>
         </form>
