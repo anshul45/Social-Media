@@ -25,7 +25,7 @@ import { useState } from "react";
 
 import Dropzone from "react-dropzone";
 import { useDispatch, useSelector } from "react-redux";
-import { setPost, setPosts } from "state";
+import { setPosts } from "state";
 
 const MyPostWidget = ({ picturePath }) => {
   const dispatch = useDispatch();
