@@ -4,15 +4,15 @@ const postSchema = mongoose.Schema(
   {
     userId: {
       type: String,
-      requires: true,
+      required: true,
     },
     firstName: {
       type: String,
-      requires: true,
+      required: true,
     },
     lastName: {
       type: String,
-      requires: true,
+      required: true,
     },
     location: String,
     description: String,
@@ -23,7 +23,7 @@ const postSchema = mongoose.Schema(
       of: Boolean,
     },
     comments: {
-      types: Array,
+      type: Array,
       default: [],
     },
   },

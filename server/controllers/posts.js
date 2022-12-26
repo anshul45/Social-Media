@@ -1,5 +1,6 @@
 import Post from "../models/Post.js";
 import User from "../models/User.js";
+
 /* CREATE */
 export const createPost = async (req, res) => {
   try {
@@ -17,6 +18,7 @@ export const createPost = async (req, res) => {
       comments: [],
     });
     await newPost.save();
+
     const post = await Post.find();
     res.status(201).json(post);
   } catch (err) {
@@ -44,7 +46,7 @@ export const getUserPosts = async (req, res) => {
   }
 };
 
-/*UPDATE*/
+/* UPDATE */
 export const likePost = async (req, res) => {
   try {
     const { id } = req.params;
