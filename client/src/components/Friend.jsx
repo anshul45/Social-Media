@@ -18,6 +18,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const primaryDark = palette.primary.dark;
   const main = palette.neutral.main;
   const medium = palette.neutral.medium;
+
   const isFriend = friends.find((friend) => friend._id === friendId);
 
   const patchFriend = async () => {
@@ -34,6 +35,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
     const data = await response.json();
     dispatch(setFriends({ friends: data }));
   };
+
   return (
     <FlexBetween>
       <FlexBetween gap="1rem">
@@ -49,7 +51,10 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
             variant="h5"
             fontWeight="500"
             sx={{
-              "&:hover": { color: palette.primary.light, cursor: "pointer" },
+              "&:hover": {
+                color: palette.primary.light,
+                cursor: "pointer",
+              },
             }}
           >
             {name}

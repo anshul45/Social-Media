@@ -1,4 +1,4 @@
-import { Box } from "@mui/system";
+import { Box } from "@mui/material";
 
 const UserImage = ({ image, size = "60px" }) => {
   return (
@@ -13,4 +13,5 @@ const UserImage = ({ image, size = "60px" }) => {
     </Box>
   );
 };
+
 export default UserImage;

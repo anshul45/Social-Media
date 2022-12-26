@@ -16,23 +16,22 @@ const FriendListWidget = ({ userId }) => {
       `http://localhost:3001/users/${userId}/friends`,
       {
         method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
       }
     );
     const data = await response.json();
     dispatch(setFriends({ friends: data }));
   };
+
   useEffect(() => {
     getFriends();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <WidgetWrapper>
       <Typography
         color={palette.neutral.dark}
-        varient="h5"
+        variant="h5"
         fontWeight="500"
         sx={{ mb: "1.5rem" }}
       >
@@ -52,4 +51,5 @@ const FriendListWidget = ({ userId }) => {
     </WidgetWrapper>
   );
 };
+
 export default FriendListWidget;
