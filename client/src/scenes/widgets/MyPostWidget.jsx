@@ -7,7 +7,6 @@ import {
   MicOutlined,
   MoreHorizOutlined,
 } from "@mui/icons-material";
-
 import {
   Box,
   Divider,
@@ -19,11 +18,10 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import FlexBetween from "components/FlexBetween";
+import Dropzone from "react-dropzone";
 import UserImage from "components/UserImage";
 import WidgetWrapper from "components/WidgetWrapper";
 import { useState } from "react";
-
-import Dropzone from "react-dropzone";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "state";
 
@@ -35,7 +33,7 @@ const MyPostWidget = ({ picturePath }) => {
   const { palette } = useTheme();
   const { _id } = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
-  const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
+  const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   const mediumMain = palette.neutral.mediumMain;
   const medium = palette.neutral.medium;
 
@@ -58,6 +56,7 @@ const MyPostWidget = ({ picturePath }) => {
     setImage(null);
     setPost("");
   };
+
   return (
     <WidgetWrapper>
       <FlexBetween gap="1.5rem">
@@ -118,7 +117,9 @@ const MyPostWidget = ({ picturePath }) => {
           </Dropzone>
         </Box>
       )}
+
       <Divider sx={{ margin: "1.25rem 0" }} />
+
       <FlexBetween>
         <FlexBetween gap="0.25rem" onClick={() => setIsImage(!isImage)}>
           <ImageOutlined sx={{ color: mediumMain }} />
@@ -126,9 +127,10 @@ const MyPostWidget = ({ picturePath }) => {
             color={mediumMain}
             sx={{ "&:hover": { cursor: "pointer", color: medium } }}
           >
-            image
+            Image
           </Typography>
         </FlexBetween>
+
         {isNonMobileScreens ? (
           <>
             <FlexBetween gap="0.25rem">
@@ -151,7 +153,8 @@ const MyPostWidget = ({ picturePath }) => {
             <MoreHorizOutlined sx={{ color: mediumMain }} />
           </FlexBetween>
         )}
-        <button
+
+        <Button
           disabled={!post}
           onClick={handlePost}
           sx={{
@@ -160,8 +163,8 @@ const MyPostWidget = ({ picturePath }) => {
             borderRadius: "3rem",
           }}
         >
-          Post
-        </button>
+          POST
+        </Button>
       </FlexBetween>
     </WidgetWrapper>
   );
