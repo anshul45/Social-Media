@@ -7,6 +7,6 @@ Social-Media
 ![Screenshot (20)](https://user-images.githubusercontent.com/80778090/209697016-63cbe18b-443a-4b7e-aeac-54590bf3b7b7.png)
 ![Screenshot (21)](https://user-images.githubusercontent.com/80778090/209697021-0b784eb1-207d-4538-8b25-4663fd012503.png)
 
-Social-Media is a website where users can and and like posts. User can add and remove friends, you must have an account for use this application.
+Social-Media is a website where users can add and like posts. Users can add and remove friends, you must have an account to use this application.
 
 This project was created using React.js, Node.js, Express, MongoDB, and MaterialUI.
